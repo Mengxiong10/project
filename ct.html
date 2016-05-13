@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>canvas</title>
+  <style>
+      table{
+        width: 1000px;
+        height: 400px;
+        border:1px solid red;
+        border-collapse:collapse;
+      }
+      td{
+        border:1px solid red;
+      }
+      .i2{
+        width: 5%;
+      }
+      .i3{
+        width:10%;
+      }
+  </style>
+</head>
+<body>
+  <div id="jj" style="width:800px;height: 300px;float: left;border: 1px solid red">
+    <canvas id="kaka"></canvas>
+  </div>
+  <div id="jjj" style="width:800px;height: 80px;float:left;border: 1px solid red">
+    <canvas id="kakaa"></canvas>
+  </div>
+  <table>
+    <colgroup>
+      <col class="i1">
+      <col class="i2">
+      <col class="i3">
+      <col class="i4">
+      <col class="i5">
+    </colgroup>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+  <script src="ct.js"></script>
+  <script>
+  var options = {
+  title: '数据占比',
+  titleFontsize: 16,
+  type: 'pie',      //['bar','pie']默认pie
+  canvas: document.querySelector('#kaka'),
+  color: ['#C23531', '#2F4554', '#AF982E', '#61A0A8', '#E98F6F'],  //扇形颜色可选
+  data: [{
+    value: 1,
+    text: '篮球'
+  }, {
+    value: 3,
+    text: '足球'
+  }, {
+    value: 2,
+    text: '乒乓球'
+  }, {
+    value: 3,
+    text: '网球'
+  }]
+}
+  var optionss = {
+  title: '数据占比',
+  titleFontsize: 16,
+  type: 'bar',      //['bar','pie']默认pie
+  canvas: document.querySelector('#kakaa'),
+  color: ['#C23531', '#2F4554', '#AF982E', '#61A0A8', '#E98F6F'],  //扇形颜色可选
+  data: [{
+    value: 1/2 ,
+    text: '篮球'}]
+  // }, {
+  //   value: 3,
+  //   text: '足球'
+  // }, {
+  //   value: 2,
+  //   text: '乒乓球'
+  // }, {
+  //   value: 3,
+  //   text: '网球'
+  // }]
+}
+drawChart(options)
+  </script>
+</body>
+</html>

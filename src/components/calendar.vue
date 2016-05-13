@@ -1,84 +1,3 @@
-  <style>
-  .date-input {
-  width: 17.5em;
-  font-size: inherit;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  padding-left: 2em;
-  line-height: 2;
-  margin-bottom: 20px;
-}
-.calendar {
-  line-height: 2;
-  font-family:arial;
-  text-align: center;
-  color: #4d4d4d;
-  background: #fff;
-  border-collapse: collapse;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-.calendar caption {
-  line-height: 2.5;
-  background: #e77408;
-  color: #fff;
-  position: relative;
-}
-.calendar thead {
-  line-height: 1.5;
-  background: #e77408;
-  color: #fff;
-}
-.calendar td {
-  width: 2.5em;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  border: 2px solid #f8f8f8;
-  cursor: pointer;
-}
-.calendar td:hover {
-  background: #e77408;
-  color: #fff;
-}
-.calendar b {
-  padding: 1em;
-}
-.icon-left {
-  border: 0.5em dashed transparent;
-  border-right: 0.5em solid #fff;
-  position: absolute;
-  margin-top: -0.5em;
-  cursor: pointer;
-  top: 50%;
-  left: 0.5em;
-}
-.icon-right {
-  border: 0.5em dashed transparent;
-  border-left: 0.5em solid #fff;
-  position: absolute;
-  margin-top: -0.5em;
-  cursor: pointer;
-  top: 50%;
-  right: 0.5em;
-}
-.icon-top {
-  border: 0.5em dashed transparent;
-  border-bottom: 0.5em solid #e77408;
-  position: absolute;
-  margin-top: -0.5em;
-  cursor: pointer;
-  top: -0.5em;
-  left: 50%;
-  margin-left: -0.5em;
-}
-.not-current-month {
-  color: #ccc;
-}
-.selected-day {
-  color: #fff;
-  background: #e77408;
-}
-
-  </style>
 
 <template>
   <div style="display: inline-block;">
@@ -206,4 +125,80 @@
   }
  </script>
 
-
+<style lang="less">
+  @background:#e77408;
+.date-input {
+  width:2.5em * 7;
+  font-size: inherit;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding-left: 2em;
+  line-height: 2;
+  margin-bottom: 20px;
+}
+.calendar {
+  line-height: 2;
+  text-align: center;
+  color:#4d4d4d;
+  background: #fff;
+  border-collapse:collapse;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .3);
+  .table-header(@line-height:2.5) {
+    line-height: @line-height;
+    background:@background;
+    color: #fff;
+  }
+  caption {
+    .table-header();
+    position: relative;
+  }
+  thead {
+    .table-header(1.5);
+  }
+  td{
+    width:2.5em;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border:2px solid #f8f8f8;
+    cursor: pointer;
+    &:hover{
+      background: @background;
+      color:#fff;
+    }
+  }
+  b{
+    padding: 1em;
+  }
+}
+.arrow(@d;@bg:#fff){
+  border:0.5em dashed transparent;
+  border-@{d}:0.5em solid @bg;
+  position: absolute;
+  margin-top: -0.5em;
+  cursor: pointer;
+}
+.icon-left{
+  .arrow(@d:right);
+  top:50%;
+  left:0.5em;
+}
+.icon-right{
+  .arrow(@d:left);
+  top:50%;
+  right:0.5em;
+}
+.icon-top{
+  .arrow(@d:bottom;@bg:@background);
+  top:-0.5em;
+  left:50%;
+  margin-left: -0.5em;
+}
+.not-current-month{
+  color: #ccc;
+}
+.selected-day{
+  color:#fff;
+  background: @background;
+}
+</style>

@@ -1,27 +1,3 @@
-/*
-// 参数例子
-var options = {
-  title: '数据占比',
-  type: 'bar',      //['bar','pie']默认pie
-  canvas: document.querySelector('#kaka'),
-  color: ['#C23531', '#2F4554', '#AF982E', '#61A0A8', '#E98F6F'],  //扇形颜色可选
-  data: [{
-    value: 100,
-    text: '篮球'
-  }, {
-    value: 336,
-    text: '足球'
-  }, {
-    value: 206,
-    text: '乒乓球'
-  }, {
-    value: 306,
-    text: '网球'
-  }]
-}*/
-
-export default drawChart
-
 function drawChart(opt) {
   var obj = chart(opt)
   switch (opt.type) {
@@ -54,12 +30,13 @@ function chart(opt) {
   var bi = parseInt(bh, 10) // bar 之间的间隙
   var bx = parseInt(tx, 10) // bar 起始x坐标
   var by = parseInt((h - length * (bh + bi) + bi) / 2 + titleFontsize, 10) // bar 起始y 坐标
+  console.log((h - 2 * titleFontsize - (length - 1) * (bh + bi)))
   var r = parseInt((h - ty * 4) / 2, 10) // 饼图半径
-  var cx = parseInt(w / 4 + r, 10) // 圆心x坐标
+  var cx = parseInt(w / 8 + r, 10) // 圆心x坐标
   var cy = parseInt(h - ty - r, 10) // 圆心Y坐标
   var total = data.reduce(function(a, b) {
     return a + b.value
-  }, 0)
+  }, 0);
   return {
     animation: function(draw, _time) {
       var time = _time || 2000

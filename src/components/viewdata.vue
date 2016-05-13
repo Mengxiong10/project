@@ -9,7 +9,7 @@
   display: block;
   font-weight: 500;
 }
-.main-header a {
+.absolute{
   position: absolute;
 }
 .v-question-topic{
@@ -41,7 +41,7 @@ position: relative;
 
 <template>
   <div class="main-header">
-   <a><i class="iconfont">&#xe604;</i>返回</a>
+   <a v-link = "'/home'" class="absolute"><i class="iconfont">&#xe604;</i>返回</a>
     <h3 class="v-header">{{title}}<small>此统计分析只包含完整回收的数据</small></h3>
   </div>
   <div class="main-body">
@@ -59,7 +59,7 @@ position: relative;
     </div>
   </div>
   <div class="v-footer">
-    <a href="" class="operate-btn"><i class="iconfont">&#xe604;</i>返回</a>
+    <a v-link = "'/home'" class="operate-btn"><i class="iconfont">&#xe604;</i>返回</a>
   </div>
 </template>
 
@@ -94,6 +94,17 @@ export default {
         type: 'bar',
         canvas: document.querySelector('#v-canvas' + index),
         data: key.options
+      }
+      switch (key.type) {
+        case 'radio':
+          options.type = 'bar'
+          break
+        case 'checkbox':
+          options.type = 'pie'
+          break
+      }
+      if (key.options.length === 1) {
+        options.title = '有效回答占比'
       }
       Chart(options)
     })

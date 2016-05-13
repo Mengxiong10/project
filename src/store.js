@@ -10,8 +10,8 @@ if (!window.localStorage.getItem(key)) {
         checked: false, // 列表选中的
         title: '测试的第一份问卷',
         time: '2016-05-01 23:56:25',
-        endTime: '2016-05-20',
-        status: '发布中',
+        endTime: '2016-05-11',
+        status: '已结束',
         content: [
           {
             title: '你最喜欢的运动',
@@ -58,12 +58,12 @@ if (!window.localStorage.getItem(key)) {
             ]
           },
           {
-            title: '对前端的看法',
+            title: '你最喜欢的地方',
             type: 'textarea',
             options: [
               {
                 text: '',
-                value: 80
+                value: 0.8
               }
             ]
           }
@@ -75,7 +75,7 @@ if (!window.localStorage.getItem(key)) {
         title: '足球数据调查',
         time: '2016-05-02 10:05:25',
         endTime: '2016-05-08',
-        status: '未发布',
+        status: '发布中',
         content: [
           {
             title: '你最喜欢的足球球星',
@@ -127,7 +127,7 @@ if (!window.localStorage.getItem(key)) {
             options: [
               {
                 text: '',
-                value: 30
+                value: 0.7
               }
             ]
           }
