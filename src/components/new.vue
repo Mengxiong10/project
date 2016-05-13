@@ -4,7 +4,7 @@
  */
 .main-header,.main-body{
   padding:34px 24px;
-  border-bottom:2px solid #ccc;
+  border-bottom:1px solid #ccc;
 }
 .title{
   width: 100%;
@@ -51,10 +51,6 @@ background: #fef1e8;
   outline: none;
   cursor: pointer;
 }
-.question-type-transition .iconfont{
-  margin-right:10px;
-}
-
 
 /**
  * main-footer
@@ -140,7 +136,7 @@ visibility: visible;
     <input type="text" class="title" v-model="questionnaire.title" placeholder="编辑问卷标题"></h3>
   <div class="main-body">
     <div class="question-topic" v-for="question in questionnaire.content" track-by="$index">
-      <div class="question-num">{{"Q"+($index+1)}}</div>
+      <b class="question-num">{{"Q"+($index+1)}}</b>
       <div class="question-content">
        <input type="text" v-model ="question.title" placeholder="编辑题目" >
         <textarea v-if="question.type==='textarea'"></textarea>
@@ -278,8 +274,16 @@ visibility: visible;
       addQuestion (type) {
         let question = {
           title: '',
-          options: [{text: ''}, {text: ''}],
+          options: [{text: ''}, {text: ''}, {text: ''}, {text: ''}],
           type: type
+        }
+        switch (type) {
+          case 'radio':
+            question.options.length = 2
+            break
+          case 'textarea':
+            question.options.length = 1
+            break
         }
         this.questionnaire.content.push(question)
       },

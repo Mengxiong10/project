@@ -7,7 +7,7 @@ if (!window.localStorage.getItem(key)) {
     [
       {
         id: 1,
-        checked: false,
+        checked: false, // 列表选中的
         title: '测试的第一份问卷',
         time: '2016-05-01 23:56:25',
         endTime: '2016-05-20',
@@ -18,16 +18,20 @@ if (!window.localStorage.getItem(key)) {
             type: 'radio',
             options: [
               {
-                text: '篮球'
+                text: '篮球',
+                value: 300
               },
               {
-                text: '足球'
+                text: '足球',
+                value: 200
               },
               {
-                text: '游泳'
+                text: '游泳',
+                value: 100
               },
               {
-                text: '乒乓球'
+                text: '乒乓球',
+                value: 250
               }
             ]
           },
@@ -36,16 +40,20 @@ if (!window.localStorage.getItem(key)) {
             type: 'checkbox',
             options: [
               {
-                text: '谷歌'
+                text: '谷歌',
+                value: 100
               },
               {
-                text: '百度'
+                text: '百度',
+                value: 26
               },
               {
-                text: '腾讯'
+                text: '腾讯',
+                value: 33
               },
               {
-                text: '苹果'
+                text: '苹果',
+                value: 20
               }
             ]
           },
@@ -54,7 +62,8 @@ if (!window.localStorage.getItem(key)) {
             type: 'textarea',
             options: [
               {
-                text: ''
+                text: '',
+                value: 80
               }
             ]
           }
@@ -73,16 +82,20 @@ if (!window.localStorage.getItem(key)) {
             type: 'radio',
             options: [
               {
-                text: '梅西'
+                text: '梅西',
+                value: 200
               },
               {
-                text: '卡卡'
+                text: '卡卡',
+                value: 500
               },
               {
-                text: 'C罗'
+                text: 'C罗',
+                value: 100
               },
               {
-                text: '其他'
+                text: '其他',
+                value: 20
               }
             ]
           },
@@ -91,16 +104,20 @@ if (!window.localStorage.getItem(key)) {
             type: 'checkbox',
             options: [
               {
-                text: '巴萨'
+                text: '巴萨',
+                value: 60
               },
               {
-                text: '皇马'
+                text: '皇马',
+                value: 50
               },
               {
-                text: 'AC米兰'
+                text: 'AC米兰',
+                value: 60
               },
               {
-                text: '曼联'
+                text: '曼联',
+                value: 20
               }
             ]
           },
@@ -109,7 +126,8 @@ if (!window.localStorage.getItem(key)) {
             type: 'textarea',
             options: [
               {
-                text: ''
+                text: '',
+                value: 30
               }
             ]
           }

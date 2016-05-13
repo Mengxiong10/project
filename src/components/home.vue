@@ -120,7 +120,7 @@ background: #fff;
 </style>
 
 <template>
-  <table class="q-table" v-if="$route.path ==='/home'">
+  <table class="q-table">
     <colgroup>
     <col class="spacing">
     <col class="questionnaire-check">
@@ -171,7 +171,7 @@ background: #fff;
         <a class="operate-btn" v-link="{name: 'edit', params: {id: questionnaire.id}}" v-if="questionnaire.status==='未发布'" >编辑</a>
         <a class="operate-btn" v-else>查看问卷</a>
         <a class="operate-btn" @click.stop="deleteQuestionnaire($index)">删除</a>
-        <a class="operate-btn">查看数据</a>
+        <a class="operate-btn" v-link = "{name:'viewdata', params:{id: questionnaire.id}}">查看数据</a>
       </td>
       <td class="no-bottom"></td>
     </tr>

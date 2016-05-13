@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './app'
 import Home from './components/home.vue'
 import New from './components/new.vue'
+import Viewdata from './components/viewdata.vue'
 
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
@@ -21,6 +22,10 @@ router.map({
   '/edit/:id': {
     name: 'edit',
     component: New
+  },
+  '/viewdata/:id': {
+    name: 'viewdata',
+    component: Viewdata
   }
 })
 
