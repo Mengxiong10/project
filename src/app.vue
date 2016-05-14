@@ -15,7 +15,6 @@
 </div>
 </template>
 
-
 <script>
   import './css/reset.css'
   import './css/header.css'
