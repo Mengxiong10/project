@@ -1,15 +1,15 @@
 
 <style>
 .mask{
-  width: 100%;
-  height: 100%;
-  background:rgba(0,0,0,.3);
   position: fixed;
   top: 0;
   left: 0;
+  width: 100%;
+  height: 100%;
+  background:rgba(0,0,0,.3);
 }
 .popover{
-  position: absolute;
+  position: fixed;
   left: 50%;
   top:25%;
   margin-left: -180px;
@@ -44,22 +44,6 @@
 .popoperate .operate-btn{
   float: none;
 }
-/*.operate-btn{
-  float: left;
-  width: 66px;
-  line-height:20px;
-  border: 1px solid #a1a1a1;
-  border-radius: 2px;
-  margin-right: 6px;
-  text-align: center;
-  background: #fff;
-  cursor: pointer;
-}
-.operate-btn:hover{
-  background:#e77408;
-  color:#fff;
-  text-decoration: none;
-}*/
 </style>
 
 <template>

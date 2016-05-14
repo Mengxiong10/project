@@ -3,11 +3,11 @@
   <table class="q-table">
     <colgroup>
     <col>
-    <col class="questionnaire-check">
-    <col class="questionnaire-title">
-    <col class="questionnaire-time">
-    <col class="questionnaire-status">
-    <col class="questionnaire-operate">
+    <col class="q-check">
+    <col class="q-title">
+    <col class="q-time">
+    <col class="q-status">
+    <col class="q-operate">
     <col></colgroup>
     <thead>
       <th></th>
@@ -17,7 +17,7 @@
       <th>状态</th>
       <th>
         操作
-        <a v-link="'/new'" class="new">
+        <a v-link="'/new'" class="q-new">
           <span>+</span>
           新建问卷
         </a>
@@ -31,7 +31,7 @@
         <i class="checkbox"></i>
       </td>
       <td>
-        <label class ="checkall" for="checkall">全选</label>
+        <label class ="q-checkall" for="checkall">全选</label>
         <a class="operate-btn" @click="deleteSelected">删除</a>
       </td>
     </tfoot>
@@ -43,13 +43,13 @@
           <i class="checkbox"></i>
         </td>
         <td>
-          <a href="">{{questionnaire.title}}</a>
+          <a v-link = "{name:'view', params:{id: questionnaire.id}}">{{questionnaire.title}}</a>
         </td>
         <td>{{questionnaire.time}}</td>
         <td :class="{'pending':questionnaire.status==='发布中'}">{{questionnaire.status}}</td>
         <td>
           <a class="operate-btn" v-link="{name: 'edit', params: {id: questionnaire.id}}" v-if="questionnaire.status==='未发布'" >编辑</a>
-          <a class="operate-btn" v-else>查看问卷</a>
+          <a class="operate-btn" v-else v-link = "{name:'view', params:{id: questionnaire.id}}">查看问卷</a>
           <a class="operate-btn" @click.stop="deleteQuestionnaire($index)">删除</a>
           <a class="operate-btn" v-link = "{name:'viewdata', params:{id: questionnaire.id}}">查看数据</a>
         </td>

@@ -1,5 +1,4 @@
 <style>
-
 .v-header{
   font-size: 24px;
   height:54px;
@@ -8,9 +7,6 @@
 .v-header>small{
   display: block;
   font-weight: 500;
-}
-.absolute{
-  position: absolute;
 }
 .v-question-topic{
 padding: 16px 26px;
@@ -26,7 +22,6 @@ position: relative;
   line-height: 130px;
   text-align: center;
 }
-
 .question-data{
   position: absolute;
   height: 100%;
@@ -34,15 +29,12 @@ position: relative;
   top:0;
   right: 0;
 }
-
-
 </style>
-
 
 <template>
   <div class="main-header">
    <a v-link = "'/home'" class="absolute"><i class="iconfont">&#xe604;</i>返回</a>
-    <h3 class="v-header">{{title}}<small>此统计分析只包含完整回收的数据</small></h3>
+    <h3 class="v-header">{{title}}<small v-if="$route.name==='viewdata'">此统计分析只包含完整回收的数据</small></h3>
   </div>
   <div class="main-body">
     <div class="v-question-topic clearfix" v-for = "question in content">
@@ -53,7 +45,7 @@ position: relative;
           <li v-for = "option in question.options">{{option.text}}</li>
         </ul>
       </div>
-      <div class="question-data">
+      <div class="question-data" v-if="$route.name==='viewdata'">
         <canvas :id="'v-canvas'+$index"></canvas>
       </div>
     </div>

@@ -1,0 +1,116 @@
+/**
+* 问卷编辑
+*/
+.main-header, .main-body {
+  padding: 34px 24px;
+  border-bottom: 1px solid #ccc;
+}
+.title {
+  width: 100%;
+  font-size: 22px;
+  font-weight: bold;
+  line-height: 54px;
+  text-align: center;
+  border: 0;
+  outline: none;
+  word-break: break-all;
+}
+.title:hover {
+  background: #fef1e8;
+}
+
+/**
+* main-body
+*/
+.question-topic {
+  padding: 16px 26px;
+
+  input[type='text'] {
+    border: 0;
+    outline: 0;
+  }
+  &:hover {
+    background: #fdf1e6;
+  }
+}
+.question-num {
+  float: left;
+  margin-right: 14px;
+}
+.question-content {
+  overflow: hidden;
+  position: relative;
+
+  textarea {
+    display: block;
+    margin-top: 20px;
+    width: 540px;
+    height: 100px;
+    resize: none;
+  }
+}
+.question-options {
+  margin-top: 12px;
+  line-height: 26px;
+}
+.question-operate>li {
+  float: right;
+  margin-left: 16px;
+  cursor: pointer;
+  visibility: hidden;
+}
+.question-topic:hover .question-operate>li {
+  visibility: visible;
+}
+.question-required {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.btn(@line-height) {
+  line-height: @line-height;
+  background: #eee;
+  cursor: pointer;
+}
+.add-question {
+  text-align: center;
+  border: 1px solid #cbcbcb;
+
+  button {
+    .btn(2);
+    margin: 15px;
+    padding: 0 22px;
+    border: 1px solid #cbcbcb;
+  }
+}
+.add-question-btn {
+  font-size: 150%;
+  .btn(2.5);
+
+  span {
+    font-size: 150%;
+    vertical-align: -2px;
+    margin-right: 20px;
+  }
+}
+.question-type-transition {
+  transition: all .5s ease;
+  height: 64px;
+  overflow: hidden;
+}
+.question-type-enter, .question-type-leave {
+  height: 0;
+}
+
+/**
+* main-footer
+*/
+.main-footer {
+  height: 136px;
+  line-height: 100px;
+  padding: 0 80px;
+
+  .operate-btn {
+    margin-right: 20px;
+  }
+}

@@ -1,135 +1,3 @@
-<style>
-  /**
- * 问卷编辑
- */
-.main-header,.main-body{
-  padding:34px 24px;
-  border-bottom:1px solid #ccc;
-}
-.title{
-  width: 100%;
-  font-size: 22px;
-  font-weight: bold;
-  line-height:54px;
-  text-align: center;
-  border:0;
-  outline: none;
-  word-break:break-all;
-}
-.title:hover{
-background: #fef1e8;
-}
-.add-question{
-  text-align: center;
-  border: 1px solid #cbcbcb;
-}
-.add-question-btn{
-  font-size:137.5%;
-  line-height:82px;
-  background:#eee;
-  cursor: pointer;
-}
-.add-question-btn>span{
-  font-size: 160%;
-  vertical-align: -4px;
-  margin-right: 20px;
-}
-.question-type-transition{
-  transition:all .5s ease;
-  height: 64px;
-  overflow: hidden;
-}
-.question-type-enter,.question-type-leave{
-  height: 0;
-}
-.question-type-transition>button{
-  margin: 15px;
-  line-height: 32px;
-  padding:0 22px;
-  background:#eee;
-  border: 1px solid #cbcbcb;
-  outline: none;
-  cursor: pointer;
-}
-
-/**
- * main-footer
- */
-.main-footer{
-  height: 136px;
-}
-.select-date{
-  float: left;
-  margin:32px 0 0 70px;
-}
-.select-date p{
-  float: left;
-  line-height:2em;
-  margin-right: 1em;
-}
-.select-date strong{
-  color:#f33;
-}
-.operate{
-  float: right;
-  margin: 38px 70px 0 0;
-}
-.operate .operate-btn{
-  width:96px;
-  margin-right: 20px;
-}
-/**
- * main-body
- */
-.question-topic{
-padding: 16px 26px;
-}
-.question-topic input[type='text']{
-  border:0;
-  outline: 0;
-}
-.question-topic:hover{
-  background: #fdf1e6;
-}
-.question-num{
-  float: left;
-  margin-right: 14px;
-}
-.question-content{
-  overflow: hidden;
-  position: relative;
-}
-.question-options{
-  margin-top: 12px;
-  line-height:26px;
-}
-.question-operate>li{
-  float: right;
-  margin-left:16px;
-  cursor: pointer;
-  visibility: hidden;
-}
-
-.question-topic:hover .question-operate>li{
-visibility: visible;
-}
-.question-content textarea{
-  display: block;
-  margin-top: 20px;
-  width:540px;
-  height: 100px;
-  resize:none;
-}
-.question-required{
-  position: absolute;
-  top:0;
-  right: 0;
-}
-.required{
-  margin-right:12px;
-}
-
-</style>
 
 <template>
   <h3 class="main-header">
@@ -139,7 +7,13 @@ visibility: visible;
       <b class="question-num">{{"Q"+($index+1)}}</b>
       <div class="question-content">
        <input type="text" v-model ="question.title" placeholder="编辑题目" >
-        <textarea v-if="question.type==='textarea'"></textarea>
+        <div v-if="question.type==='textarea'">
+          <textarea></textarea>
+          <div class="question-required">
+            <input type="checkbox">
+            <b>此题是否必填</b>
+          </div>
+        </div>
         <ul class="question-options" v-else>
           <li v-for = "option in question.options">
             <input :type="question.type" disabled>
@@ -174,13 +48,13 @@ visibility: visible;
     </div>
   </div>
   <div class="main-footer">
-    <div class="select-date">
-      <p>问卷截止日期:</p>
+    <div class="float-left">
+      <p class="float-left">问卷截止日期:&nbsp;</p>
       <calendar :date.sync = "questionnaire.endTime"></calendar>
       <strong v-if="timeEarly">!选择日期早于当前日期</strong>
     </div>
 
-    <div class="operate">
+    <div class="float-right">
       <a class="operate-btn" @click="save" v-link="'/home'">保存问卷</a>
       <a class="operate-btn" @click="pending">发布问卷</a>
     </div>
@@ -189,6 +63,7 @@ visibility: visible;
 </template>
 
 <script>
+  import '../css/edit.less'
   import Vue from 'vue'
   import Store from '../store.js'
   import Extend from './extend.js'

@@ -22,22 +22,22 @@
   border: none;
 }
 }
-.questionnaire-check {
+.q-check {
   width: 4%;
 }
-.questionnaire-title {
+.q-title {
   width: 32%;
 }
-.questionnaire-time {
+.q-time {
   width: 20%;
 }
-.questionnaire-status {
+.q-status {
   width: 15%;
 }
-.questionnaire-operate {
+.q-operate {
   width: 25%;
 }
-.new {
+.q-new {
   display: inline-block;
   margin-left: 106px;
   width: 7em;
@@ -57,10 +57,10 @@
   }
 }
 .checkbox:before, .checkbox:after {
-  box-sizing: border-box;
   content: "";
   float: left;
   border-radius: 100%;
+  box-sizing: border-box;
 }
 .checkbox:before {
   width: 1em;
@@ -85,8 +85,8 @@
 .q-option:checked+.checkbox:after {
   background: #fff;
 }
-.checkall{
-  position: relative;
+.q-checkall{
+  position: relative;  // cover input
   padding-left:20px;
   margin:0 30px 0 -40px;
   cursor: pointer;

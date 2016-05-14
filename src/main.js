@@ -26,6 +26,10 @@ router.map({
   '/viewdata/:id': {
     name: 'viewdata',
     component: Viewdata
+  },
+  '/view/:id': {
+    name: 'view',
+    component: Viewdata
   }
 })
 

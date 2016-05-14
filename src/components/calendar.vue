@@ -1,4 +1,5 @@
 
+
 <template>
   <div style="display: inline-block;">
     <input type="text" class="date-input" placeholder="yyyy-mm-dd" v-model='date' @click.stop="showCalendar">
@@ -29,6 +30,7 @@
 </template>
 
 <script>
+  import '../css/calendar.less'
   import Extend from './extend.js'
   export default{
     props: ['date'],
@@ -125,80 +127,4 @@
   }
  </script>
 
-<style lang="less">
-  @background:#e77408;
-.date-input {
-  width:2.5em * 7;
-  font-size: inherit;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  padding-left: 2em;
-  line-height: 2;
-  margin-bottom: 20px;
-}
-.calendar {
-  line-height: 2;
-  text-align: center;
-  color:#4d4d4d;
-  background: #fff;
-  border-collapse:collapse;
-  border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, .3);
-  .table-header(@line-height:2.5) {
-    line-height: @line-height;
-    background:@background;
-    color: #fff;
-  }
-  caption {
-    .table-header();
-    position: relative;
-  }
-  thead {
-    .table-header(1.5);
-  }
-  td{
-    width:2.5em;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    border:2px solid #f8f8f8;
-    cursor: pointer;
-    &:hover{
-      background: @background;
-      color:#fff;
-    }
-  }
-  b{
-    padding: 1em;
-  }
-}
-.arrow(@d;@bg:#fff){
-  border:0.5em dashed transparent;
-  border-@{d}:0.5em solid @bg;
-  position: absolute;
-  margin-top: -0.5em;
-  cursor: pointer;
-}
-.icon-left{
-  .arrow(@d:right);
-  top:50%;
-  left:0.5em;
-}
-.icon-right{
-  .arrow(@d:left);
-  top:50%;
-  right:0.5em;
-}
-.icon-top{
-  .arrow(@d:bottom;@bg:@background);
-  top:-0.5em;
-  left:50%;
-  margin-left: -0.5em;
-}
-.not-current-month{
-  color: #ccc;
-}
-.selected-day{
-  color:#fff;
-  background: @background;
-}
-</style>
+
