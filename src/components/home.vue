@@ -1,6 +1,6 @@
 
 <template>
-  <table class="q-table">
+  <table class="q-table" v-if="questionnaires.length !== 0">
     <colgroup>
     <col>
     <col class="q-check">
@@ -57,6 +57,12 @@
       </tr>
     </tbody>
   </table>
+  <div class="add-q" v-else>
+    <a v-link="'/new'" class="q-new">
+      <span>+</span>
+         新建问卷
+   </a>
+  </div>
   <pop-up :show.sync = "popup.show" :prompt="popup.prompt" :callback="popup.call" ></pop-up>
 </template>
 

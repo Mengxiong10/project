@@ -13,6 +13,7 @@ if (!window.localStorage.getItem(key)) {
       content: [{
         title: '您的性别',
         type: 'radio',
+        required: false,
         options: [{
           text: '男',
           value: 300
@@ -23,6 +24,7 @@ if (!window.localStorage.getItem(key)) {
       }, {
         title: '您喜欢的公司',
         type: 'checkbox',
+        required: false,
         options: [{
           text: '谷歌',
           value: 100
@@ -39,6 +41,7 @@ if (!window.localStorage.getItem(key)) {
       }, {
         title: '您最喜欢的运动',
         type: 'radio',
+        required: false,
         options: [{
           text: '篮球',
           value: 300
@@ -55,6 +58,7 @@ if (!window.localStorage.getItem(key)) {
       }, {
         title: '您喜欢的科目',
         type: 'checkbox',
+        required: false,
         options: [{
           text: '数学',
           value: 250
@@ -71,6 +75,7 @@ if (!window.localStorage.getItem(key)) {
       }, {
         title: '您最喜欢的地方',
         type: 'textarea',
+        required: true,
         options: [{
           text: '',
           value: 0.8
@@ -96,6 +101,7 @@ if (!window.localStorage.getItem(key)) {
       }, {
         title: '您喜欢的足球俱乐部',
         type: 'checkbox',
+        required: false,
         options: [{
           text: '巴萨',
           value: 60
@@ -112,6 +118,7 @@ if (!window.localStorage.getItem(key)) {
       }, {
         title: '您最喜欢的足球球星',
         type: 'radio',
+        required: false,
         options: [{
           text: '梅西',
           value: 200
@@ -128,6 +135,7 @@ if (!window.localStorage.getItem(key)) {
       }, {
         title: '您喜欢的教练',
         type: 'checkbox',
+        required: false,
         options: [{
           text: '安切洛蒂',
           value: 160
@@ -144,6 +152,7 @@ if (!window.localStorage.getItem(key)) {
       }, {
         title: '您认为最伟大的前锋是谁',
         type: 'textarea',
+        required: false,
         options: [{
           text: '',
           value: 0.7

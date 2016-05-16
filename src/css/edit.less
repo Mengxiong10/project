@@ -42,6 +42,9 @@
   overflow: hidden;
   position: relative;
 
+  input[type="text"]{
+    width: 50%;
+  }
   textarea {
     display: block;
     margin-top: 20px;
@@ -54,14 +57,21 @@
   margin-top: 12px;
   line-height: 26px;
 }
-.question-operate>li {
+.question-operate{
   float: right;
   margin-left: 16px;
   cursor: pointer;
   visibility: hidden;
 }
-.question-topic:hover .question-operate>li {
+.delete-option{
+  color:red;
+  cursor: pointer;
+  visibility: hidden;
+}
+.question-topic:hover{
+ .question-operate,.delete-option{
   visibility: visible;
+}
 }
 .question-required {
   position: absolute;

@@ -40,7 +40,7 @@ position: relative;
     <div class="v-question-topic clearfix" v-for = "question in content">
       <b class="question-num">{{"Q"+($index+1)}}</b>
       <div class="question-content">
-        <h4>{{question.title}}</h4>
+        <h4>{{question.title}} <b v-if="question.required">*</b></h4>
         <ul class="question-options" >
           <li v-for = "option in question.options">{{option.text}}</li>
         </ul>
@@ -74,12 +74,6 @@ export default {
     }
   },
   ready () {
-    // var options = {
-    //   title: '数据占比',
-    //   type: 'bar',      //['bar','pie']默认pie
-    //   canvas: document.querySelector('#kaka'),
-    //   data: []
-    // }
     this.content.forEach((key, index) => {
       let options = {
         title: '数据占比',

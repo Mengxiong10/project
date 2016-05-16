@@ -3,14 +3,14 @@
   <h3 class="main-header">
     <input type="text" class="title" v-model="questionnaire.title" placeholder="编辑问卷标题"></h3>
   <div class="main-body">
-    <div class="question-topic" v-for="question in questionnaire.content" track-by="$index">
+    <div class="question-topic" v-for="question in questionnaire.content">
       <b class="question-num">{{"Q"+($index+1)}}</b>
       <div class="question-content">
        <input type="text" v-model ="question.title" placeholder="编辑题目" >
         <div v-if="question.type==='textarea'">
           <textarea></textarea>
           <div class="question-required">
-            <input type="checkbox">
+            <input type="checkbox" v-model="question.required">
             <b>此题是否必填</b>
           </div>
         </div>
@@ -18,14 +18,16 @@
           <li v-for = "option in question.options">
             <input :type="question.type" disabled>
             <input type="text" v-model = "option.text" placeholder="编辑选项">
+            <b class="delete-option" @click="deleteOption($index, question)">×</b>
           </li>
         </ul>
       </div>
-      <ul class="question-operate clearfix">
-        <li @click="deleteQuestion($index)">删除</li>
-        <li @click="copyQuestion($index, question)">复用</li>
-        <li @click="downQuestion($index, question)">下移</li>
-        <li @click="upQuestion($index, question)">上移</li>
+      <ul class="clearfix">
+        <li class="question-operate" @click="deleteQuestion($index)">删除</li>
+        <li class="question-operate" @click="copyQuestion($index, question)">复用</li>
+        <li class="question-operate" @click="downQuestion($index, question)" v-if="$index !== questionnaire.content.length-1">下移</li>
+        <li class="question-operate" @click="upQuestion($index, question)" v-if="$index!==0">上移</li>
+        <li class="question-operate" @click="addOption(question)" v-if="question.type !=='textarea'">添加选项</li>
       </ul>
     </div>
     <div class="add-question">
@@ -150,7 +152,8 @@
         let question = {
           title: '',
           options: [{text: ''}, {text: ''}, {text: ''}, {text: ''}],
-          type: type
+          type: type,
+          required: false
         }
         switch (type) {
           case 'radio':
@@ -161,6 +164,12 @@
             break
         }
         this.questionnaire.content.push(question)
+      },
+      addOption (question) {
+        question.options.push({text: ''})
+      },
+      deleteOption (index, question) {
+        question.options.splice(index, 1)
       },
       deleteQuestion (index) {
         // if (window.confirm('确定删除吗？')) {
@@ -175,20 +184,23 @@
       },
       upQuestion (index, question) {
         let arr = this.questionnaire.content
-        if (index === 0) {
-          return
-        }
         Vue.set(arr, index, arr.splice(index - 1, 1, question)[0])
       },
       downQuestion (index, question) {
         let arr = this.questionnaire.content
-        if (index === arr.length - 1) {
-          return
-        }
         Vue.set(arr, index, arr.splice(index + 1, 1, question)[0])
       },
       copyQuestion (index, question) {
-        this.questionnaire.content.splice(index, 0, question)
+        console.log(question)
+        let q = {
+          title: '',
+          options: [],
+          type: question.type
+        }
+        for (var i = 0; i < question.options.length; i++) {
+          q.options.push({text: ''})
+        }
+        this.questionnaire.content.splice(index + 1, 0, q)
       }
     },
     route: {
