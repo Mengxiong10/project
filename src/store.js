@@ -2,7 +2,7 @@ const key = 'form'
 
 if (!window.localStorage.getItem(key)) {
   let list = {
-    allId: 2,
+    allId: 3,
     info: [{
       id: 1,
       checked: false, // 列表选中的
@@ -91,6 +91,7 @@ if (!window.localStorage.getItem(key)) {
       content: [{
         title: '您的性别',
         type: 'radio',
+        required: false,
         options: [{
           text: '男',
           value: 300
@@ -156,6 +157,69 @@ if (!window.localStorage.getItem(key)) {
         options: [{
           text: '',
           value: 0.7
+        }]
+      }]
+    }, {
+      id: 3,
+      checked: false,
+      title: '篮球数据调查',
+      time: '2016-05-02 10:05:25',
+      endTime: '2016-07-08',
+      status: '未发布',
+      content: [{
+        title: '您的性别',
+        type: 'radio',
+        required: false,
+        options: [{
+          text: '男'
+        }, {
+          text: '女'
+        }]
+      }, {
+        title: '您喜欢的篮球俱乐部',
+        type: 'checkbox',
+        required: false,
+        options: [{
+          text: '湖人'
+        }, {
+          text: '火箭'
+        }, {
+          text: '骑士'
+        }, {
+          text: '凯热特人'
+        }]
+      }, {
+        title: '您最喜欢的篮球球星',
+        type: 'radio',
+        required: false,
+        options: [{
+          text: '乔丹'
+        }, {
+          text: '科比'
+        }, {
+          text: '艾弗森'
+        }, {
+          text: '保罗'
+        }]
+      }, {
+        title: '您喜欢的教练',
+        type: 'checkbox',
+        required: false,
+        options: [{
+          text: '菲尔杰克逊'
+        }, {
+          text: '波波维奇'
+        }, {
+          text: '奥尔巴赫'
+        }, {
+          text: '沃顿'
+        }]
+      }, {
+        title: '您认为最伟大的中锋是谁',
+        type: 'textarea',
+        required: false,
+        options: [{
+          text: ''
         }]
       }]
     }]
